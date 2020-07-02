@@ -1,0 +1,133 @@
+### TEST
+GET http://localhost:8000/test
+
+### Register
+POST http://localhost:8000/api/register
+Content-Type: application/json
+
+{
+    "name": "test2",
+    "email": "test2@example.com",
+    "password": "test2"
+}
+
+### Login
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+{
+    "email": "test2@example.com",
+    "password": "test2"
+}
+
+
+#########################
+### Surveys
+########################
+@Token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0MkBleGFtcGxlLmNvbSIsImV4cCI6MTU5MzY3NTY2OTAzNH0.5u9BciUOhlMohIFOzS2HSrNU1yKWbAJA5fPozp9pUfQ
+
+
+### GET ALL SURVEYS TEST
+GET http://localhost:8000/api/survey/test
+Authorization: Bearer {{Token}}
+
+### GET ALL SURVEYS FOR USER
+
+GET http://localhost:8000/api/survey
+Authorization: Bearer {{Token}}
+
+### GET ONE SURVEY
+GET http://localhost:8000/api/survey/5efc1f17009a95cf00dc8063
+Authorization: Bearer {{Token}}
+
+### CREATE SURVEY
+POST http://localhost:8000/api/survey
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+{
+    "name": "Deno Course",
+    "description": "I would like to know your opinion on my Deno course."
+}
+
+### Update SURVEY
+PUT http://localhost:8000/api/survey/5efc1f17009a95cf00dc8063
+Authorization: Bearer {{Token}}
+Content-Type: application/json
+
+{
+    "name": "Survey 3",
+    "description": "my description 3-2 updated."
+}
+
+### Delete Survey
+
+DELETE http://localhost:8000/api/survey/5efc0027009efb39008b40a8
+Authorization: Bearer {{Token}}
+
+
+
+#########################
+### QUESTIONS
+########################
+
+### GET ALL QUESTIONS TEST
+GET http://localhost:8000/api/questions/test
+Authorization: Bearer {{Token}}
+
+### GET ALL QUESTIONS FOR SURVEY
+
+GET http://localhost:8000/api/survey/5efc1f17009a95cf00dc8063/questions
+Authorization: Bearer {{Token}}
+
+
+### GET ONE QUESTION
+GET http://localhost:8000/api/question/5efcbc8200a1a4a8006bb40c
+Authorization: Bearer {{Token}}
+
+
+### CREATE QUESTION FOR SURVEY with surveyID
+POST http://localhost:8000/api/question/5efd19650005f48a0057a1b1
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+
+{
+    "text": "Good?",
+    "type": "choice",
+    "required": false,
+    "data": {
+        "multiple": false,
+        "answers": [
+            "A little",
+            "Good experience",
+            "No. i didn't"
+        ]
+    }
+}
+
+### Update QUESTION
+
+PUT http://localhost:8000/api/question/5efd2519000eb5e600ab2558
+Authorization: Bearer {{Token}}
+Content-Type: application/json
+
+{
+    "text": "would you do it again?",
+        "type": "choice",
+    "required": true,
+    "data": {
+        "multiple": false,
+        "answers": [
+            "I like it very much",
+            "I like it",
+            "I dont like it",
+            "I hate it"
+        ]
+    }
+
+}
+### Delete QUESTION
+
+DELETE http://localhost:8000/api/question/5efd215f00b2c0dd003d0c6b
+Authorization: Bearer {{Token}}

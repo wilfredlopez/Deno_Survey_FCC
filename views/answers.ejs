@@ -1,0 +1,43 @@
+<%- await include('views/partials/header.ejs') %>
+
+<div class="container">
+
+    <h1 class="text-center">Answers</h1>
+
+
+    <div>
+        <% for(let data of answers){ %>
+        <div class="card  mb-3">
+            <div class="card-body">
+                <h2 class="card-title text-center">
+                    <%= data.surveyText %>
+                </h2>
+                <% for(let resumen of data.resumen){ %>
+                <div class="div">
+                    <h3 class="h5">
+
+                        <%=  resumen.questionText %>
+
+
+                    </h3>
+                    <p class="font-weight-light">
+                        <%=  resumen.date %>
+                    </p>
+                    <ul class="list-group mb-4">
+
+                        <% if (resumen.answers.length > 0) { %>
+                        <%  resumen.answers.map((ans) => { %>
+                        <li class="list-group-item"><%= ans %> </li>
+                        <% }); %>
+
+                    </ul>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<%- await include('views/partials/footer.ejs') %>

@@ -1,0 +1,23 @@
+<%- await include('views/partials/header.ejs') %>
+
+<div class="container">
+
+    <h1 class="text-center">Active Surveys</h1>
+    <% for(let survey of surveys){ %>
+    <div class="card survey-card mb-3">
+        <a href="/survey/<%= survey.id  %> ">
+            <div class="card-body">
+                <div class="card-title">
+                    <%= survey.name %>
+                </div>
+                <div class="card-text">
+                    <%= survey.description %>
+                </div>
+            </div>
+        </a>
+    </div>
+    <% } %>
+
+
+</div>
+<%- await include('views/partials/footer.ejs') %>

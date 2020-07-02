@@ -1,0 +1,57 @@
+<div class="container">
+    <p>
+        <a href="/" class="btn btn-light">Go back to all surveys</a>
+    </p>
+    <div class="card survey-card mb-3">
+        <div class="card-body">
+            <h1 class="text-center"> <%= survey.name %></h1>
+            <p>
+                <%= survey.description %>
+            </p>
+
+        </div>
+    </div>
+    <form action="/survey/<%= survey.id %>" method=post>
+
+        <% for(let question of questions){ %>
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= question.text %>
+                </h5>
+                <% if(question.type === 'text') { %>
+                <div class="mb-2">
+                    <input type="text" placeholder="Write your answer" name="<%= question.id %>" class="form-control">
+                </div>
+                <% } else if (question.isMultipleChoise()) { %>
+                <% for(let [index, answer] of question.data.answers.entries()){ %>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name="<%= question.id  %>" value="<%= answer %> "
+                        class="custom-control-input" id="<%= question.id  %>_<%= index %>">
+                    <label class="custom-control-label" for="<%= question.id  %>_<%= index %>">
+                        <%= answer %>
+                    </label>
+                </div>
+                <% } %>
+                <% } else { %>
+                <h2>NOT MUL</h2>
+                <% for(let [index, answer] of question.data.answers.entries()){ %>
+                <div class="custom-control custom-radio">
+                    <input value="<%= answer %> " type="radio" id="<%= question.id  %>-<%= index %>"
+                        name="<%= question.id %>" class="custom-control-input">
+                    <label class="custom-control-label" for="<%= question.id  %>-<%= index %>">
+                        <%= answer %> </label>
+                </div>
+                <% } %>
+                <% } %>
+
+            </div>
+
+        </div>
+        <% } %>
+        <p>
+            <button class="btn btn-success">Submit</button>
+        </p>
+    </form>
+
+</div>

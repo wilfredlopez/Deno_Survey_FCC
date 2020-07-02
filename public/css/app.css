@@ -1,0 +1,38 @@
+/* VARS */
+:root{
+    --main-color: #1f79da;
+}
+
+body{
+    background-color: rgba(223, 223, 223, 0.95);
+    /* padding: 5px; */
+}
+
+/* DESKTOP */
+/* @media (min-width: 700px){
+    body{
+        padding: 50px;
+      
+    }
+} */
+
+.survey-card{
+    transition: all 0.3s;
+}
+
+.survey-card a{
+    text-decoration: none;
+    color: #212529;
+}
+.survey-card:hover{
+    box-shadow: 0 0 0 4px var(--main-color, blue);
+}
+
+.notfound{
+    height: 60vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

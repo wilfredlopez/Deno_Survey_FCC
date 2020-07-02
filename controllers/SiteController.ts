@@ -6,7 +6,7 @@ import { renderView } from "../helpers.ts";
 import Question from "../models/Question.ts";
 import { answersCollection, Answer } from "../mongo.ts";
 
-interface AnswerResponse {
+export interface AnswerResponse {
   //key = SurveyID
   [key: string]: {
     surveyId: string;
@@ -17,7 +17,7 @@ interface AnswerResponse {
   };
 }
 
-interface Resumen {
+export interface Resumen {
   questionId: string;
   questionText: string;
   surveyId: string;

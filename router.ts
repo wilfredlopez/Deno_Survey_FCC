@@ -15,15 +15,15 @@ router
   .post("/survey/:id", SiteController.submitSurvey.bind(SiteController))
   //BACK_END
   //Auth
-  .get("/test", AuthController.getAllUsers.bind(AuthController))
+  // .get("/test", AuthController.getAllUsers.bind(AuthController))
   .post("/api/login", AuthController.login.bind(AuthController))
   .post("/api/register", AuthController.register.bind(AuthController))
   //Surveys
-  .get(
-    "/api/survey/test",
-    authMiddleware,
-    SurveyController.test.bind(SurveyController),
-  )
+  // .get(
+  //   "/api/survey/test",
+  //   authMiddleware,
+  //   SurveyController.test.bind(SurveyController),
+  // )
   .get(
     "/api/survey",
     authMiddleware,
@@ -50,11 +50,11 @@ router
     SurveyController.delete.bind(SurveyController),
   )
   //Questions
-  .get(
-    "/api/questions/test",
-    authMiddleware,
-    QuestionController.test.bind(QuestionController),
-  )
+  // .get(
+  //   "/api/questions/test",
+  //   authMiddleware,
+  //   QuestionController.test.bind(QuestionController),
+  // )
   .get(
     "/api/survey/:surveyId/questions",
     authMiddleware,

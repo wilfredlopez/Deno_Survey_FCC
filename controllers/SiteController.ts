@@ -67,25 +67,6 @@ class SiteController {
     }
 
     const answers = Object.values(res);
-
-    //FRONT-END MOCK RENDER.
-    // for (let data of answers) {
-    //   //Render Title
-    //   console.log(data.surveyText);
-    //   for (let resumen of data.resumen) {
-    //     //Render More Info => Date and UserAgent.
-    //     console.log(resumen.date);
-    //     console.log(resumen.userAgent);
-    //     if (resumen.answers.length > 0) {
-    //       //render Question
-    //       console.log(resumen.questionText);
-    //       resumen.answers.map((ans) => {
-    //         console.log(ans);
-    //         //render answer
-    //       });
-    //     }
-    //   }
-    // }
     context.response.body = await renderView("answers", { questions, answers });
   }
   async surveys(context: RouterContext) {
@@ -97,10 +78,6 @@ class SiteController {
       return s;
     });
     context.response.body = await renderView("surveys", { surveys });
-    // context.response.body = await dejs.renderFileToString(
-    //   BASE_PATH+'surveys.ejs',
-    //   { surveys },
-    // );
   }
 
   async submitSurvey(context: RouterContext) {
@@ -179,7 +156,6 @@ class SiteController {
       }
 
       let questions = await Question.findBySurveyId(survey.id);
-      // questions = questions.map((q) => new Question(q));
       context.response.body = await renderView(
         "single-survey",
         { survey, questions, errors: {}, answers: {} },
@@ -187,7 +163,6 @@ class SiteController {
     } catch (error) {
       console.error(error);
       context.response.status = 500;
-      //   this.sendNotFoundPage(context);
     }
   }
 }

@@ -6,10 +6,10 @@ import BaseSurveyController from "./BaseSurveyController.ts";
 import User from "../models/User.ts";
 
 class SurveyController extends BaseSurveyController {
-  async test(context: RouterContext) {
-    const surveys = await Survey.findAll();
-    context.response.body = surveys;
-  }
+  // async test(context: RouterContext) {
+  //   const surveys = await Survey.findAll();
+  //   context.response.body = surveys;
+  // }
   async getUserSurveys(context: RouterContext) {
     try {
       const user = context.state.user as User;

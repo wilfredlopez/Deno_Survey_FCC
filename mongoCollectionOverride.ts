@@ -2,7 +2,6 @@ import {
   dispatchAsync,
   encode,
   ObjectId,
-  //   MongoClient,
   UpdateResult,
   decode,
   dispatch,

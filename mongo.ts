@@ -1,4 +1,4 @@
-import { MongoClient, Collection } from "./deps.ts";
+import { MongoClient } from "./deps.ts";
 import { DATABASE_NAME, MONGO_URL } from "./constants.ts";
 const client = new MongoClient();
 
@@ -18,4 +18,5 @@ export interface Answer {
   answers: { [key: string]: string | string[] | null };
 }
 
+//Modified mongo library in order to be able to use Generics and get completition.
 export const answersCollection = db.collection<Answer>("answers");

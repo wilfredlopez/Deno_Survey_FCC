@@ -7,15 +7,15 @@ import Question, { QuestionType } from "../models/Question.ts";
 import Survey from "../models/Survey.ts";
 
 class QuestionController extends BaseController {
-  async test(context: RouterContext) {
-    try {
-      const questions = await Question.findAll<Question>();
-      context.response.body = questions;
-    } catch (error) {
-      console.error(error);
-      this.sendErrorResponse(context);
-    }
-  }
+  // async test(context: RouterContext) {
+  //   try {
+  //     const questions = await Question.findAll<Question>();
+  //     context.response.body = questions;
+  //   } catch (error) {
+  //     console.error(error);
+  //     this.sendErrorResponse(context);
+  //   }
+  // }
   async getBySurvey(context: RouterContext) {
     try {
       const surveyId = context.params.surveyId;

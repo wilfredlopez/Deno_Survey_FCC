@@ -1,6 +1,11 @@
 # FCC Deno Survey App
 Survey application with REST API to manage surveys and questions and website, where all surveys are outputted.
 
+## Credits to TheCodeholic, BeginCI and Free Code Camp
+[Github Original Repo](https://github.com/thecodeholic/deno-survey)
+
+[Youtube Tutorial](https://www.youtube.com/watch?v=TQUy8ENesGY)
+
 ## Installation
 
 You need to have [deno installed](https://deno.land/#installation) in order to run this application.<br>
@@ -20,7 +25,7 @@ Install also [denon](https://deno.land/x/denon) which watches your file changes 
     ```
 1. Run the application by executing
 
-    ```dotenv
+    ```bash
     denon run --allow-net --allow-write --allow-read --allow-env --allow-plugin --unstable server.ts
     ```
     

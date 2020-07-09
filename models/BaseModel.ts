@@ -14,9 +14,13 @@ abstract class BaseModel {
   }
 
   static getValidMongoIdOrFail(id: string) {
-    if (id.length !== 24) {
-      throw new Error("Invalid Mongo ID.");
+    const isLegal = /^[0-9a-fA-F]{24}$/.test(id);
+    if (!isLegal) {
+      throw new Error(`ObjectId("${id}") is not legal.`);
     }
+    // if (id.length !== 24) {
+    //   throw new Error("Invalid Mongo ID.");
+    // }
     const oid = ObjectId(id);
     return oid;
   }
